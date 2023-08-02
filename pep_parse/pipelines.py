@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import Any
 
 from pep_parse.exceptions import (
-    ParserFileOutputException
+    ParserFileOutputError
 )
 from pep_parse.settings import (
     BASE_DIR,
@@ -46,6 +46,6 @@ class PepParsePipeline:
                 writer.writerows(self.pep_statuses.items())
                 writer.writerow(('Total', self.total))
         except Exception as error:
-            raise ParserFileOutputException(
+            raise ParserFileOutputError(
                 f'В процессе работы с файлом возникла ошибка: {error}'
             )

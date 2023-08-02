@@ -1,4 +1,4 @@
-class ParserFileOutputException(Exception):
+class ParserFileOutputError(Exception):
     """
     Вызывается, когда парсер не
     может создать и сохранить файл.
