@@ -1,5 +1,5 @@
 import re
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 import scrapy
 
@@ -7,7 +7,8 @@ from pep_parse.items import PepParseItem
 from pep_parse.settings import (
     ALLOWED_DOMAINS,
     NAME_SPIDER,
-    PEP_NAME_PATTERN
+    PEP_NAME_PATTERN,
+    START_URLS
 )
 
 
@@ -15,8 +16,8 @@ class PepSpider(scrapy.Spider):
     """Собирает данные о PEP."""
 
     name: str = NAME_SPIDER
-    allowed_domains = [ALLOWED_DOMAINS]
-    start_urls = [f'https://{ALLOWED_DOMAINS}/']
+    allowed_domains: List[str] = [ALLOWED_DOMAINS, ]
+    start_urls: List[str] = START_URLS
 
     def parse(self, response) -> Dict[str, Any]:
         # Собирает ссылки на документы из таблицы Numerical Index.

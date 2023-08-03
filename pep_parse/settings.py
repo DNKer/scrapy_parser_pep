@@ -1,8 +1,8 @@
 from pathlib import Path
-from typing import Dict
+from typing import Dict, List
 
 
-BOT_NAME = 'pep_parse'
+BOT_NAME: str = 'pep_parse'
 
 SPIDER_MODULES = ['pep_parse.spiders']
 NEWSPIDER_MODULE = 'pep_parse.spiders'
@@ -17,6 +17,7 @@ NAME_SPIDER: str = 'pep'
 RESULT_DIR: str = 'results'
 FILE_FORMAT: str = 'csv'
 ALLOWED_DOMAINS: str = 'peps.python.org'
+START_URLS: List[str] = [f'https://{ALLOWED_DOMAINS}/', ]
 # PEP_NAME_PATTERN - шаблон для поиска версии и статуса.
 # \d - соответствует цифре (эквивалентно [0-9])
 # + 1 или больше повторений предшествующего символа
